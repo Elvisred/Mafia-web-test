@@ -17,11 +17,9 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from players import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('players.urls')),
-    path('api/players/<int:player_id>/', views.delete_player_api, name = 'delete_player_api'),
 ]
