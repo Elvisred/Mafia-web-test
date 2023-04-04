@@ -1,7 +1,4 @@
 django>=4.2
 djangorestframework>=3.14.0
 mysql-connector-python>=8.0.32
-mysqlclient==2.1.1 --global-option=build_ext --global-option="-L/usr/local/opt/openssl/lib" --global-option="-I/usr/local/opt/openssl/include"
-
-
-
+mysqlclient>=2.1.0
