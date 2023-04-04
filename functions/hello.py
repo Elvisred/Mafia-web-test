@@ -1,5 +1,6 @@
 import json
 
+
 def handler(event, context):
     body = {
         "message": "Hello from Netlify Functions!"
