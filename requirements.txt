@@ -1,2 +1,4 @@
 django
 djangorestframework
+mysql-connector-python
+mysqlclient
