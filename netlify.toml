@@ -1,6 +1,7 @@
 [build]
-  command = "python manage.py collectstatic"
   publish = "staticfiles"
+  command = "python manage.py collectstatic --noinput"
 
-[dev]
-  command = "python manage.py runserver"
+[build.environment]
+  PYTHON_VERSION = "3.9.2"
+  DJANGO_SETTINGS_MODULE = "myapi.settings"
