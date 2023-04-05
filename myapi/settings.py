@@ -77,19 +77,18 @@ CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000, https://elvis-maf-test.netlify.a
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mafia',
-        'USER': 'test_user',
-        'PASSWORD': 'queen',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'NAME': os.environ.get('DATABASE_NAME'),
+        'USER': os.environ.get('DATABASE_USER'),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
+        'HOST': os.environ.get('DATABASE_HOST'),
+        'PORT': os.environ.get('DATABASE_PORT'),
     }
 }
 
-os.environ['MYSQL_CONFIG'] = '/usr/local/opt/mysql-client/bin/mysql_config'
-os.environ['MARIADB_CONFIG'] = '/usr/local/bin/mariadb_config'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

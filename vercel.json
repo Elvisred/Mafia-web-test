@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "use": "@vercel/python",
+      "entrypoint": "myapi.wsgi:application"
+    }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/myapi/\g<1>" }
+  ]
+}

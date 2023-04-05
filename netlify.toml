@@ -1,9 +1,0 @@
-[build]
-  publish = "staticfiles"
-  command = "python manage.py collectstatic --noinput"
-
-[build.environment]
-  PYTHON_VERSION = "3.9.2"
-  DJANGO_SETTINGS_MODULE = "myapi.settings"
-  MYSQL_CONFIG="/usr/local/opt/mysql-client/bin/mysql_config"
-  MARIADB_CONFIG="/usr/local/bin/mariadb_config"
