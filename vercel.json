@@ -1,17 +1,23 @@
-{
-  "version": 2,
-  "builds": [
-    {
-      "use": "@vercel/python",
-      "entrypoint": "myapi.wsgi:application"
-    }
-  ],
-  "routes": [
-    { "src": "/(.*)", "dest": "/myapi/\g<1>" },
-    {
-      "src": "/api/players/.*",
-      "dest": "/players/views.py"
-    }
 
-  ]
+{
+    "builds": [{
+        "src": "myapi/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+    },
+    {
+        "src": "build_files.sh",
+        "use": "@vercel/static-build",
+        "config": { "distDir": "staticfiles_build" }
+    }],
+    "routes": [
+        {
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "myapi/wsgi.py"
+        }
+    ]
 }
