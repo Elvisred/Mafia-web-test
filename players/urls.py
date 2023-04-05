@@ -12,4 +12,5 @@ urlpatterns = [
     path('api/clubs/<int:club_id>/', views.update_club, name='update_club'),
     path('api/clubs/<int:club_id>', views.delete_club, name='delete_club'),
     path('api/players/players_by_club/<str:club_name>/', views.get_players_by_club, name='get_players_by_club'),
+    path('.netlify/functions/hello-world')
 ]

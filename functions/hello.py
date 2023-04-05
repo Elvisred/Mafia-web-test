@@ -1,12 +1,10 @@
 import json
+import os
 
 
-def handler(event, context):
-    body = {
-        "message": "Hello from Netlify Functions!"
-    }
-    response = {
-        "statusCode": 200,
-        "body": json.dumps(body)
-    }
-    return response
+def handler():
+    my_secret = os.environ.get('MY_SECRET')
+    return {
+            'statusCode': 200,
+            'body': f'hello world! I have a {my_secret}'
+            }
