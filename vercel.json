@@ -7,6 +7,11 @@
     }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "/myapi/\g<1>" }
+    { "src": "/(.*)", "dest": "/myapi/\g<1>" },
+    {
+      "src": "/api/players/.*",
+      "dest": "/players/views.py"
+    }
+
   ]
 }
