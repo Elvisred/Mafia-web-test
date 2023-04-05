@@ -80,10 +80,10 @@ CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000, https://elvis-maf-test.netlify.a
 DATABASES = {
     'default': {
         'ENGINE': 'mysql.connector.django',
-        'NAME': 'mafia',
-        'USER': 'test_user',
-        'PASSWORD': 'queen',
-        'HOST': 'localhost',
+        'DATABASE_NAME': 'mafia',
+        'DATABASE_USER': 'test_user',
+        'DATABASE_PASSWORD': 'queen',
+        'DATABASE_HOST': 'localhost',
         'PORT': '3306',
     }
 }

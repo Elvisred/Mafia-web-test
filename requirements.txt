@@ -3,3 +3,4 @@ djangorestframework>=3.14.0
 mysql-connector-python>=8.0.32
 mysqlclient>=2.1.0
 wheel>=0.40.0
+mysql.connector>=2.2.9
