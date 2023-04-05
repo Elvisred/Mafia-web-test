@@ -15,8 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-BASE_URL = 'https://mafia-test-qxvkbxae5-elvisred.vercel.app/'
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -54,7 +52,7 @@ MIDDLEWARE = [
 ]
 
 
-ROOT_URLCONF = 'myapi.urls'
+ROOT_URLCONF = 'players.urls'
 
 TEMPLATES = [
     {
@@ -72,25 +70,27 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'myapi.wsgi.application'
+WSGI_APPLICATION = 'players.wsgi.application'
 
-CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000, https://mafia-test-qxvkbxae5-elvisred.vercel.app/']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8000, http://172.17.0.2:8000']
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('DATABASE_NAME'),
-        'USER': os.environ.get('DATABASE_USER'),
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
-        'HOST': os.environ.get('DATABASE_HOST'),
-        'PORT': os.environ.get('DATABASE_PORT'),
+        'NAME': 'mafia',
+        'USER': 'test_user',
+        'PASSWORD': 'queen',
+        'HOST': 'db',
+        'PORT': '3306',
     }
 }
 
+
+os.environ['MYSQL_CONFIG'] = '/usr/local/opt/mysql-client/bin/mysql_config'
+os.environ['MARIADB_CONFIG'] = '/usr/local/bin/mariadb_config'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -126,22 +126,9 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
-    ],
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
-    ],
-}
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
-MEDIA_URLS ='/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

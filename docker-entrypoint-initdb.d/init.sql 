@@ -1,0 +1,33 @@
+CREATE DATABASE IF NOT EXISTS mafia;
+
+USE mafia;
+
+CREATE TABLE club (
+  id INT NOT NULL AUTO_INCREMENT,
+  club_name VARCHAR(255) NOT NULL,
+  city VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE player (
+  id INT NOT NULL AUTO_INCREMENT,
+  nickname VARCHAR(255) NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  club_id INT NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (club_id) REFERENCES club(id)
+);
+
+INSERT INTO club (club_name, city) VALUES
+  ('Red Elvis Mafia', 'Moscow');
+
+INSERT INTO player (nickname, name, club_id) VALUES
+  ('Elvis', 'Aleksei', 1);
+
+CREATE TABLE tourney (
+  id INT NOT NULL AUTO_INCREMENT,
+  nickname VARCHAR(255) NOT NULL,
+  tourney_name VARCHAR(255) NOT NULL,
+  club_id INT NOT NULL,
+  PRIMARY KEY (id)
+);
