@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS mafia;
+CREATE DATABASE IF NOT EXISTS mafia_api_db;
 
-USE mafia;
+USE mafia_api_db;
 
 CREATE TABLE club (
   id INT NOT NULL AUTO_INCREMENT,

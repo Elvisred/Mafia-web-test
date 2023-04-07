@@ -1,9 +1,8 @@
 FROM mysql:8
 
-ENV MYSQL_DATABASE=mafia \
+ENV MYSQL_DATABASE=mafia_api_db \
     MYSQL_USER=test_user \
     MYSQL_PASSWORD=queen \
-    MYSQL_ROOT_PASSWORD=admin \
-    PORT=3306
+    MYSQL_ROOT_PASSWORD=admin
 
 COPY init.sql /docker-entrypoint-initdb.d/

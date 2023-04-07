@@ -72,7 +72,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'players.wsgi.application'
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:8000, http://172.17.0.2:8000']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8000']
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -80,7 +80,7 @@ CSRF_TRUSTED_ORIGINS = ['http://localhost:8000, http://172.17.0.2:8000']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mafia',
+        'NAME': 'mafia_api_db',
         'USER': 'test_user',
         'PASSWORD': 'queen',
         'HOST': 'db',
