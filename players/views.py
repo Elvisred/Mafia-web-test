@@ -42,6 +42,12 @@ def create_player(request):
             if not club:
                 return JsonResponse({'error': 'Club is required'}, status=400)
 
+            # Проверка максимальной длины строк
+            if len(nickname) > 30:
+                return JsonResponse({'error': 'Nickname must be max 30 characters'}, status=400)
+            if len(name) > 30:
+                return JsonResponse({'error': 'Name must be 30 max characters'}, status=400)
+
             player, created = Player.objects.get_or_create(
                 nickname=nickname,
                 defaults={'name': name, 'club': club}
@@ -139,6 +145,12 @@ def create_club(request):
                 return JsonResponse({'error': 'Club name is required'}, status=400)
             if not city:
                 return JsonResponse({'error': 'City is required'}, status=400)
+
+            # Проверка максимальной длины строк
+            if len(club_name) > 30:
+                return JsonResponse({'error': 'Club name must be max 30 characters'}, status=400)
+            if len(city) > 30:
+                return JsonResponse({'error': 'City must be max 30 characters'}, status=400)
 
             club, created = Club.objects.get_or_create(
                 club_name=club_name,
