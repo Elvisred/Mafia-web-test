@@ -14,7 +14,7 @@ class PlayerCreateView(generics.CreateAPIView):
 
 @csrf_exempt
 def delete_player_api(request, player_id):
-    if request.method == 'DELETE':
+    if 'DELETE' == request.method:
         try:
             player = get_object_or_404(Player, id=player_id)
             player.delete()
@@ -34,8 +34,13 @@ def create_player(request):
             name = data.get('name')
             club = data.get('club')
 
+            # Добавьте проверки для всех обязательных полей
             if not nickname:
                 return JsonResponse({'error': 'Nickname is required'}, status=400)
+            if not name:
+                return JsonResponse({'error': 'Name is required'}, status=400)
+            if not club:
+                return JsonResponse({'error': 'Club is required'}, status=400)
 
             player, created = Player.objects.get_or_create(
                 nickname=nickname,
@@ -129,8 +134,11 @@ def create_club(request):
             club_name = data.get('club_name')
             city = data.get('city')
 
+            # Добавьте проверки для всех обязательных полей
             if not club_name:
                 return JsonResponse({'error': 'Club name is required'}, status=400)
+            if not city:
+                return JsonResponse({'error': 'City is required'}, status=400)
 
             club, created = Club.objects.get_or_create(
                 club_name=club_name,
